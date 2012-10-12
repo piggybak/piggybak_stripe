@@ -1,5 +1,9 @@
-// this identifies your website in the createToken call below
-            Stripe.setPublishableKey('pk_t1W93WUJiPR1y3Zb106JBOr5bx9NG');
+
+<% stripe_method = Piggybak::PaymentMethod.find_by_klass("::Piggybak::PaymentCalculator::Stripe") %>
+
+<% stripe_calculator = ::Piggybak::PaymentCalculator::Stripe.new(stripe_method)%>
+
+            Stripe.setPublishableKey('<%= stripe_calculator.publishable_key %>');
 
             function stripeResponseHandler(status, response) {
 
