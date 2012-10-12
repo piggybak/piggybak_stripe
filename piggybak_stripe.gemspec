@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Piggybak Stripe"
   s.description = "Integration of Stripe payment gateway for use with Piggybak"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
   
   s.add_dependency 'stripe', '1.7.4'
