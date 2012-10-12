@@ -14,7 +14,7 @@ you wish to run the library.
 2. `bundle install`
 3. Add require for piggybak_stripe to your main javascript manifest (assets/javascripts/application.js) 
 	`//= require piggybak_stripe`
-4. Add javascript include tag for Stripe's js library into your application layout.  NOTE: This include tag needs to go above where your main javascript files are included.
+4. Add javascript include tag for Stripe's js library into your application layout.  NOTE: This include tag needs to go above where your main javascript files are included.<br/>
 	`<script type="text/javascript" src="https://js.stripe.com/v1/"></script>`
   	`<%= javascript_include_tag "application" %>`
 5. Start the app, and navigate to Rails Admin.  Create a new payment method with Stripe as the calculator and add the following Stripe keys (obtained from your Stripe account):
