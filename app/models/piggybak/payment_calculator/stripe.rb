@@ -1,3 +1,4 @@
+
 module Piggybak
   class PaymentCalculator::Stripe
     KEYS = ['test_secret_key', 
