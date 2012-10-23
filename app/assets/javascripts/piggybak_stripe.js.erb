@@ -8,7 +8,7 @@
             function stripeResponseHandler(status, response) {
 
                 if (response.error) {
-					alert('error response');
+					alert(response.error.message);
                     // re-enable the submit button
                     $('#new_piggybak_order').find('input:submit').removeAttr("disabled");
                     // show the errors on the form
@@ -18,7 +18,7 @@
                     // token contains id, last4, and card type
                     var token = response['id'];
                     // insert the token into the form so it gets submitted to the server
-                    form$.append("<input type='hidden' name='piggybak_order[payments_attributes][0][stripe_token]' value='" + token + "' />");
+                    form$.append("<input type='hidden' name='piggybak_order[line_items_attributes][1][payment_attributes][stripe_token]' value='" + token + "' />");
                     // and submit
 					
                     form$.get(0).submit();
