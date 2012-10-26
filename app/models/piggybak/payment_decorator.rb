@@ -18,7 +18,7 @@ Piggybak::Payment.class_eval do
     Stripe.api_key = calculator.secret_key
     begin
       charge = Stripe::Charge.create({
-                  :amount => order.total_due * 100,
+                  :amount => (order.total_due * 100).to_i,
                   :card => self.stripe_token,
                   :currency => "usd"
                 })
