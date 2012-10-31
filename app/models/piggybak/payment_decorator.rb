@@ -3,7 +3,7 @@ Piggybak::Payment.class_eval do
   attr_accessor :stripe_token
   attr_accessible :stripe_token
 
-  validates_presence_of :stripe_token
+  validates_presence_of :stripe_token, :on => :create
 
   [:month, :year, :payment_method_id].each do |field|
     _validators.reject!{ |key, _| key == field }
