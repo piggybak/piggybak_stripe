@@ -16,17 +16,17 @@
 	<div class="item">
 		<% if current_user -%>
 		<%= f.label :email %>
-		<%= f.text_field :email, { :readonly => true, :class => "readonly" } %><br />
+		<%= f.text_field :email, { :readonly => true, :class => "readonly required" } %>
 		<span>or <%= link_to 'LOGOUT', destroy_user_session_path, :method => :delete, :class => "last" %></span>
 		<% else -%>
 		<%= f.label :email %>
-		<%= f.text_field :email %><br />
+		<%= f.text_field :email, :class => "required" %><br />
 		<span>or <%= link_to 'LOG IN', new_user_session_path %></span>
 		<% end -%>
 	</div>
 	<div class="item">
 		<%= f.label :phone %>
-		<%= f.text_field :phone %>
+		<%= f.text_field :phone, :class => "required" %>
 	</div>
 </div>
 
@@ -74,22 +74,21 @@
 	<%= f.fields_for :line_items, @order.line_items.detect { |li| li.line_item_type == "payment" } do |line_item_f| %>
 		<%= line_item_f.hidden_field :line_item_type, { :value => "payment" } %>
 		<%= line_item_f.fields_for :payment do |payment| %>
-				<div class="item">
-				<%= payment.label :number %>
-				<%= tag :input, {:type => :text, :class => "card-number"}%>
-				</div>
-
-				<div class="item">
-				<%= payment.label :verification_value %>
-				<%= tag :input, {:type => :text, :class => "card-cvc"}%>
-				</div>
-
-				<div class="item">
-					<label>Expiration (MM/YYYY)</label>
-					<input type="text" size="2" class="card-expiry-month"/>
-					<span> / </span>
-					<input type="text" size="4" class="card-expiry-year"/>
-				</div>
+			<div class="item">				
+			<%= payment.label :number %>
+			<%= tag :input, {:type => :text, :class => "card-number required", :id => 'myid', :name => 'payment_number'}%>				
+			</div>
+	
+			<div class="item">
+			<%= payment.label :verification_value %>
+			<%= tag :input, {:type => :text, :class => "card-cvc required", :name => 'cvv'}%>
+			</div>
+		
+			<div class="item">
+			<%= payment.label :month %>
+			<%= content_tag :select, options_for_select(1.upto(12).to_a), {:class=> 'card-expiry-month'}%> /
+			<%= content_tag :select, options_for_select(Time.now.year.upto(Time.now.year + 10).to_a), {:class=> 'card-expiry-year'}%>				
+			</div>						
 		<% end -%>
 	<% end -%>
 	</div>
