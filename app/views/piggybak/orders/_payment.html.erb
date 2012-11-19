@@ -1,0 +1,23 @@
+<div id="payment">
+<h3>Payment</h3>
+<%= f.fields_for :line_items, @order.line_items.detect { |li| li.line_item_type == "payment" } do |line_item_f| %>
+	<%= line_item_f.hidden_field :line_item_type, { :value => "payment" } %>
+	<%= line_item_f.fields_for :payment do |payment| %>
+		<div class="item">				
+		<%= payment.label :number %>
+		<%= tag :input, {:type => :text, :class => "card-number required", :id => 'myid', :name => 'payment_number'}%>				
+		</div>
+
+		<div class="item">
+		<%= payment.label :verification_value %>
+		<%= tag :input, {:type => :text, :class => "card-cvc required", :name => 'cvv'}%>
+		</div>
+	
+		<div class="item">
+		<%= payment.label :month %>
+		<%= content_tag :select, options_for_select(1.upto(12).to_a), {:class=> 'card-expiry-month'}%> /
+		<%= content_tag :select, options_for_select(Time.now.year.upto(Time.now.year + 10).to_a), {:class=> 'card-expiry-year'}%>				
+		</div>						
+	<% end -%>
+<% end -%>
+</div>
