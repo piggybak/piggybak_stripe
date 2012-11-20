@@ -1,14 +1,14 @@
 
-<% stripe_method = Piggybak::PaymentMethod.find_by_klass("::Piggybak::PaymentCalculator::Stripe") %>
+<% stripe_method = Piggybak::PaymentMethod.find_by_klass("::PiggybakStripe::PaymentCalculator::Stripe") %>
 
-<% stripe_calculator = ::Piggybak::PaymentCalculator::Stripe.new(stripe_method)%>
+<% stripe_calculator = ::PiggybakStripe::PaymentCalculator::Stripe.new(stripe_method)%>
 
             Stripe.setPublishableKey('<%= stripe_calculator.publishable_key %>');
 
             function stripeResponseHandler(status, response) {
 
                 if (response.error) {
-					alert(response.error.message);
+					          alert(response.error.message);
                     // re-enable the submit button
                     $('#new_piggybak_order').find('input:submit').removeAttr("disabled");
                     // show the errors on the form
