@@ -8,11 +8,10 @@
             function stripeResponseHandler(status, response) {
 
                 if (response.error) {
-					          alert(response.error.message);
                     // re-enable the submit button
                     $('#new_piggybak_order').find('input:submit').removeAttr("disabled");
                     // show the errors on the form
-                    $(".payment-errors").html(response.error.message);
+                    $("#stripe_error").html(response.error.message);
                 } else {
                     var form$ = $("#new_piggybak_order");
                     // token contains id, last4, and card type
