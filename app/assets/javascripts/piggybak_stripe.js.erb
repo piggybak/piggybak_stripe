@@ -1,6 +1,6 @@
 
 <% stripe_method = Piggybak::PaymentMethod.find_by_klass("::PiggybakStripe::PaymentCalculator::Stripe") %>
-
+<% if stripe_method %>
 <% stripe_calculator = ::PiggybakStripe::PaymentCalculator::Stripe.new(stripe_method)%>
 
             Stripe.setPublishableKey('<%= stripe_calculator.publishable_key %>');
@@ -51,3 +51,5 @@
 				}
 	
 		  	});			    
+<% end %>		  	
+		  	
