@@ -10,7 +10,7 @@ The following markups are supported.  The dependencies listed are required if
 you wish to run the library.
 
 1. Add piggybak_stripe gem to Gemfile
-	`gem 'piggybak_stripe, :git => 'git://github.com/piggybak/piggybak_stripe.git'`
+	`gem 'piggybak_stripe', :git => 'git://github.com/piggybak/piggybak_stripe.git'`
 2. `bundle install`
 3. Add require for piggybak_stripe to your main javascript manifest (assets/javascripts/application.js) 
 	`//= require piggybak_stripe`
@@ -22,6 +22,9 @@ you wish to run the library.
 	*test_secret_key
 	*live_publishable_key
 	*live_secret_key
+	
+	![Admin Settings](https://www.evernote.com/shard/s70/sh/339b6ca3-c876-459f-a56f-4cc4ad0eafb1/8e0020484ef7129f10133764142e6e7d/res/fbc6f56a-c98a-47d7-a99a-f2771e35ecac/skitch.png)
+	
 6. Configure piggybak's gateway mode:  
 	`config.activemerchant_mode = :test` OR `config.activemerchant_mode = :production`
 
