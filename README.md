@@ -10,7 +10,7 @@ The following markups are supported.  The dependencies listed are required if
 you wish to run the library.
 
 1. Add piggybak_stripe gem to Gemfile
-	`gem 'piggybak_stripe', :git => 'git://github.com/piggybak/piggybak_stripe.git'`
+	`gem 'piggybak_stripe'`
 2. `bundle install`
 3. Add require for piggybak_stripe to your main javascript manifest (assets/javascripts/application.js) 
 	`//= require piggybak_stripe`
