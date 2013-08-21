@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
   
   s.add_dependency 'stripe', '1.7.4'
+  s.add_dependency 'piggybak'
 end
